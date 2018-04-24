@@ -1,0 +1,34 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	padding: 50px;
+	
+	
+}
+#seleccion{
+	
+	width: 100px;
+	height: 50px;
+	border: 1px solid #000;
+	border-radius: 0.5em;
+	
+
+}
+
+#dept{
+
+	width: 200px;
+	height: 300px;
+	
+	
+}
+
+#deptV{
+
+	width: 200px;
+	height: 300px;
+	
+	
+}
+
+

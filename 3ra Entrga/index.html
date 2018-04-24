@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="css.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Selecion de paises</title>
+</head>
+
+<body>
+
+<h1 align="center">SELECCION DE PAISES</h1>
+
+<center>
+<select id="seleccion" name="paises">
+
+	<option value="departamentosColombia.html">Colombia</option>
+    <option value="departamentosPeru.html">Peru</option>
+    <option value="departamentosEcuador.html">Ecuador</option>
+    <option value="departamentosVenezuela.html">Venezuela</option>
+
+</select>
+</center>
+
+
+
+<script>
+$("#seleccion").change(function(){
+  var destino = $("#seleccion").val();
+  $( "#contenedor" ).slideUp( 500);
+   
+	    $.ajax({
+                    type: "GET",
+                    url: destino,
+                    data: {id:"0"},
+                    dataType: "html",
+                    beforeSend: function(){
+                          //imagen de carga
+                           $("#contenedor").html("<p align='center'>Cargando...</p>");
+							             $( "#contenedor" ).slideDown( 2000);
+						              $("#contenedor").empty();
+                    },
+                    error: function(){
+                          alert("error petición ajax");
+                    },
+                    success: function(data){          
+
+						               $( "#contenedor" ).delay( 1000);
+                           $("#contenedor").append(data);
+						                                          
+                    }
+				
+              });
+	
+});
+
+</script>
+
+
+
+
+</body>
+</html>
